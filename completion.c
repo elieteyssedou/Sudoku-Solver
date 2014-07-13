@@ -16,40 +16,86 @@ int		verifsquare(char **grille, int y, int x, char a);
 
 void	completion(char **grille)
 {
-	int y;
-	int x;
-	int c;
-	int l;
-	int s;
-	char a;
+	int 	y;
+	int 	x;
+	int		c;
+	int		l;
+	int		s;
+	char	a;
+	int valid;
 
+	valid = 0;
 	y = 1;
 	x = 0;
 	a = '1';
-	while (y != 10) 
+	
+	while (valid != 1)
 	{
-		x = 0;
-		while (x != 10)
+		y = 1;
+		while (y != 10) 
 		{
-			if (grille[y][x] == '.')
+			x = 0;
+			while (x != 10)
 			{
-				if (verifligne(grille, x, a) == 0 && verifligne(grille, x, a) == 0
-				&& verifligne(grille, x, a) == 0)
+				if (grille[y][x] == '.')
 				{
-					grille[y][x] = a;
+					if (verifligne(grille, x, a) == 0 && verifligne(grille, x, a) == 0
+					&& verifligne(grille, x, a) == 0)
+					{
+						grille[y][x] = a;
+						x++;
+						a = '1';
+					}
+					else if (a >= 1 && a <= 9)
+					{
+						a++;
+					}
+				}
+				else
+				{
 					x++;
-					a = '1';
-				}
-				else if (a >= 1 && a <= 9)
-				{
-					a++;
 				}
 			}
-			else
-			{
-				x++;
-			}
+			y++;
 		}
-		y++;
+
+		y = 1;
+		while (y != 10) 
+		{
+			x = 0;
+			while (x != 10)
+			{
+				a = grille[y][x];
+				if (verifligne(grille, x, a) == 1 || verifligne(grille, x, a) == 1
+				|| verifligne(grille, x, a) == 1)
+				{
+					grille[y][x] = '.';
+					x++;
+				}
+				else
+					x++;
+			}
+			y++;
+		}
+
+		y = 1;
+		while (y != 10)
+		{
+			x = 0;
+			while (x != 10)
+			{
+				if (grille[y][x] == '.')
+					break;
+				else
+					x++;
+			}
+			if (grille[y][x] == '.')
+				break;
+			else
+				y++;
+		}
+
+		if (y == 10)
+			valid = 1;
 	}
 }
