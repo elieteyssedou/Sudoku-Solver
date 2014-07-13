@@ -19,7 +19,7 @@ void	affgrille(char **grille);
 int		verifligne(char **grille, int y, char a);
 int		verifcolonne(char **grille, int x, char a);
 int		verifsquare(char **grille, int x, int y, char a);
-void		completion(char **grille);
+void	completion(char **grille);
 
 int		main(int argc, char **argv)
 {
@@ -48,7 +48,6 @@ int		main(int argc, char **argv)
 	//printf("ligne : %d\ncolone : %d\nsquare : %d\n", verifligne(argv, 6, '5'),
 	//	verifcolonne(argv, 3, '5'), verifsquare(argv, 6, 3, '5'));
 	completion(argv);
-	affgrille(argv);
 	return (0);
 }
 
