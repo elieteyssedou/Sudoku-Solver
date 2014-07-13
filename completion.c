@@ -14,7 +14,7 @@ int		verifligne(char **grille, int y, char a);
 int		verifcolonne(char **grille, int x, char a);
 int		verifsquare(char **grille, int y, int x, char a);
 
-int completion(char **grille)
+void	completion(char **grille)
 {
 	int y;
 	int x;
@@ -25,23 +25,31 @@ int completion(char **grille)
 
 	y = 1;
 	x = 0;
-	char a = '0'
-	if (grille[x][y] == a)
+	a = '1';
+	while (y != 10) 
 	{
-		if (verifligne(grille, x, y) == 0 && verifligne(grille, x, y) == 0
-			&& verifligne(grille, x, y) == 0)
+		x = 0;
+		while (x != 10)
 		{
-			grille[x][y] = a;
-			
-	}
-
-/*
-	while (y != 10)
-	{
-		while (x != 9)
-		{
-			if ()
+			if (grille[y][x] == '.')
+			{
+				if (verifligne(grille, x, a) == 0 && verifligne(grille, x, a) == 0
+				&& verifligne(grille, x, a) == 0)
+				{
+					grille[y][x] = a;
+					x++;
+					a = '1';
+				}
+				else if (a >= 1 && a <= 9)
+				{
+					a++;
+				}
+			}
+			else
+			{
+				x++;
+			}
 		}
+		y++;
 	}
-*/
 }

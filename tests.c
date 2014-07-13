@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 void	resxy(int square, int *x, int *y);
+int	defsquare(int x, int y);
 
 int		verifligne(char **grille, int y, char a)
 {
